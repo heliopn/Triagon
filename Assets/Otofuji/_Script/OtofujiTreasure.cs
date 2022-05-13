@@ -21,14 +21,13 @@ public class OtofujiTreasure : MonoBehaviour
         // Debug.Log(lm.OnStartEvent);
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
         //start sound;
         Renderer render = GetComponent<Renderer>();
         render.material.color = Color.green;
         lm.OnStartEvent = false;
         lm.OnFinishEvent = true;
         Destroy(dragon);
-
-
     }
 }

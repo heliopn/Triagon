@@ -11,7 +11,7 @@ public class LightingManager : MonoBehaviour
     //Variables
     [SerializeField, Range(0, 24)] public float TimeOfDay;
     private static LightingManager _instance;
-    
+
     public bool OnStartEvent;
     public bool OnFinishEvent;
     GameManager gm;
@@ -29,43 +29,52 @@ public class LightingManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            if (OnStartEvent == false){
-                if (TimeOfDay < 12) { 
+            if (OnStartEvent == false)
+            {
+                if (TimeOfDay < 12)
+                {
                     TimeOfDay += Time.deltaTime;
                     TimeOfDay %= 24; //Modulus to ensure always between 0-24
                     UpdateLighting(TimeOfDay / 24f);
                 }
             }
-            if (OnStartEvent == true){
-                if (TimeOfDay < 22) { 
+            if (OnStartEvent == true)
+            {
+                if (TimeOfDay < 22)
+                {
                     TimeOfDay += Time.deltaTime;
                     TimeOfDay %= 24; //Modulus to ensure always between 0-24
                     UpdateLighting(TimeOfDay / 24f);
                 }
             }
-            if (OnFinishEvent == true){
+            if (OnFinishEvent == true)
+            {
                 gm.erik = true;
-                if (TimeOfDay < 12) { 
+                if (TimeOfDay < 12)
+                {
                     TimeOfDay += Time.deltaTime;
                     TimeOfDay %= 24; //Modulus to ensure always between 0-24
                     UpdateLighting(TimeOfDay / 24f);
                 }
-                if (TimeOfDay > 15) { 
+                if (TimeOfDay > 15)
+                {
                     TimeOfDay += Time.deltaTime;
                     TimeOfDay %= 24; //Modulus to ensure always between 0-24
                     UpdateLighting(TimeOfDay / 24f);
                 }
             }
         }
-            //(Replace with a reference to the game time)
-        
+        //(Replace with a reference to the game time)
+
         else
         {
             UpdateLighting(TimeOfDay / 24f);
 
-            if (Application.isPlaying) {
-            
-                if (TimeOfDay < 22) { 
+            if (Application.isPlaying)
+            {
+
+                if (TimeOfDay < 22)
+                {
                     TimeOfDay += Time.deltaTime;
                     TimeOfDay %= 24; //Modulus to ensure always between 0-24
                     UpdateLighting(TimeOfDay / 24f);
@@ -73,15 +82,15 @@ public class LightingManager : MonoBehaviour
             }
         }
 
-        
 
-        
+
+
     }
 
     //  public static LightingManager GetInstance()
-    
+
     // {
-        
+
     //     if (_instance == null) {
     //         _instance = new LightingManager();
     //     }
@@ -91,38 +100,41 @@ public class LightingManager : MonoBehaviour
     //     OnStartEvent = false;
     // }
 
-    public void OtofujiEventOnStart() {
-        
-        
+    public void OtofujiEventOnStart()
+    {
+
+
         TimeOfDay = 22;
 
 
-        
+
     }
 
-    public void OtofujiEventOnFinish() {
+    public void OtofujiEventOnFinish()
+    {
         if (Preset == null)
             return;
-        if (TimeOfDay > 24) {TimeOfDay = 1;}
+        if (TimeOfDay > 24) { TimeOfDay = 1; }
         if (Application.isPlaying)
         {
-            if (TimeOfDay > 21 || TimeOfDay < 12) { 
+            if (TimeOfDay > 21 || TimeOfDay < 12)
+            {
                 TimeOfDay += Time.deltaTime;
                 TimeOfDay %= 24; //Modulus to ensure always between 0-24
                 UpdateLighting(TimeOfDay / 24f);
             }
         }
-            //(Replace with a reference to the game time)
-            
+        //(Replace with a reference to the game time)
+
         else
         {
             UpdateLighting(TimeOfDay / 24f);
         }
 
 
-        
+
     }
-   
+
 
     private void UpdateLighting(float timePercent)
     {

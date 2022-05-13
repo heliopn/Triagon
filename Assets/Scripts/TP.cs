@@ -11,6 +11,7 @@ public class TP : MonoBehaviour
     GameManager gm;
     [SerializeField]
     bool goal;
+    bool did = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,15 @@ public class TP : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
-        if (goal){
-            gm.helio = true;
+        if (did)
+        {
+            Debug.Log(other.gameObject.name);
+            if (goal)
+            {
+                gm.helio = true;
+            }
+            pl.transform.position = go.transform.position;
+            did = false;
         }
-        pl.transform.position = go.transform.position;
     }
 }

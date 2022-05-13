@@ -20,7 +20,8 @@ public class OtofujiDragon : MonoBehaviour
         // Debug.Log(lm.OnStartEvent);
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
         //start sound;
         Renderer render = GetComponent<Renderer>();
         render.material.color = Color.green;
