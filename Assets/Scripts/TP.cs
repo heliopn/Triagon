@@ -23,7 +23,6 @@ public class TP : MonoBehaviour
     {
         if (did)
         {
-            Debug.Log(other.gameObject.name);
             if (goal)
             {
                 gm.helio = true;

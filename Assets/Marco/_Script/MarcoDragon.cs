@@ -39,7 +39,7 @@ public class MarcoDragon : MonoBehaviour
             if (!activated) {
                 //Renderer render = GetComponent<Renderer>();
                 //render.material.color = Color.green;
-                Instantiate(Rhino, transform.position + new Vector3(-14.2f,-0.5f,-11.2f),transform.rotation * Quaternion.Euler (180f, 270, 180f),transform);
+                Instantiate(Rhino, transform.position + new Vector3(-14.2f,-0.5f,-11.2f),transform.rotation * Quaternion.Euler (180f, 272f, 180f),transform);
                 activated = true;
             }
         }
